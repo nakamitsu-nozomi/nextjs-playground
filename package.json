@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --dir src",
+    "lint:fix": "yarn lint --fix",
+    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'"
   },
   "dependencies": {
+    "@octokit/core": "^4.1.0",
+    "@octokit/types": "^8.0.0",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -19,6 +23,8 @@
     "@types/react-dom": "18.0.6",
     "eslint": "8.25.0",
     "eslint-config-next": "12.3.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.1",
     "typescript": "4.8.4"
   }
 }
