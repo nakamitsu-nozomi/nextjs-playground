@@ -7,7 +7,7 @@ if (typeof process.env.GITHUB_OAUTH_CLIENT_SECRET !== 'string') {
   throw new Error('Undefined GITHUB_OAUTH_CLIENT_SECRET')
 }
 if (typeof process.env.NEXTAUTH_SECRET !== 'string') {
-  throw new Error('Undefined GITHUB_OAUTH_CLIENT_SECRET')
+  throw new Error('Undefined NEXTAUTH_SECRET')
 }
 export default NextAuth({
   providers: [
