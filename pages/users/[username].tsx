@@ -44,7 +44,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const username = context.params?.username
   if (typeof username !== 'string') {
     return {
-      props: { repos: null, error: { message: 'Bad Request' } },
+      props: { repos: null, error: { message: 'Bad Request' }, revalidate: 10 },
     }
   }
   try {
@@ -52,7 +52,12 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       username,
     })
     return {
-      props: { repos: data, error: { message: '' }, generatedAt: new Date().toString() },
+      props: {
+        repos: data,
+        error: { message: '' },
+        generatedAt: new Date().toString(),
+        revalidate: 10,
+      },
     }
   } catch (e) {
     return {
@@ -60,6 +65,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
         repos: null,
         error: { message: 'cannot fetch data' },
         generatedAt: new Date().toString(),
+        revalidate: 10,
       },
     }
   }
