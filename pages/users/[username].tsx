@@ -27,6 +27,7 @@ const Pages = ({ repos, error, generatedAt }: Props) => {
       <p onClick={()=>redirect("/")}>ホーム</p>
       <p onClick={()=>redirect("/users/nakamitsu-nozomi")}>SSG</p>
       <p onClick={()=>redirect("/my")}>SSR</p>
+      <p onClick={()=>redirect("/csr")}>CSR</p>
       <h1 style={{background:'pink'}}>SSG(ISG/ISR)</h1>
       <p> generatedAt :{generatedAt}</p>
       <ul>

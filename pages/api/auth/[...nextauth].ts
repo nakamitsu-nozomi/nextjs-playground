@@ -19,16 +19,19 @@ export default NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, account }) {
-      if (account?.accessToken) {
-        token.accessToken = account.accessToken
+      if (account?.access_token) {
+        token.accessToken = account.access_token
       }
+
       return token
     },
     async session({ session, token }) {
+      console.log(" token.accessToken___", token.accessToken )
       return Promise.resolve({
         ...session,
         accessToken: token.accessToken,
       })
+
     },
   },
 })
