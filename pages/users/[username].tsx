@@ -19,14 +19,15 @@ const Pages = ({ repos, error, generatedAt }: Props) => {
   if (!repos || !generatedAt) {
     return <p>loading....</p>
   }
-  const redirect = () => {
-    router.push('/').then()
+  const redirect = (path :string) => {
+    router.push(path).then()
   }
-
   return (
     <>
-      <p onClick={redirect}>ホーム</p>
-      <h1>SSG(ISG/ISR)</h1>
+      <p onClick={()=>redirect("/")}>ホーム</p>
+      <p onClick={()=>redirect("/users/nakamitsu-nozomi")}>SSG</p>
+      <p onClick={()=>redirect("/my")}>SSR</p>
+      <h1 style={{background:'pink'}}>SSG(ISG/ISR)</h1>
       <p> generatedAt :{generatedAt}</p>
       <ul>
         {repos.map((repo) => (
